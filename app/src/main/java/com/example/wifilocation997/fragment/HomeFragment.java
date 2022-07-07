@@ -1,12 +1,21 @@
 package com.example.wifilocation997.fragment;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.Rect;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.wifilocation997.R;
 
@@ -25,6 +34,9 @@ public class HomeFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private ImageView iv;
+    private TextView tv_home;
+
 
     public HomeFragment() {
         // Required empty public constructor
@@ -57,10 +69,33 @@ public class HomeFragment extends Fragment {
         }
     }
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
+         View view = inflater.inflate(R.layout.fragment_home, container, false);
+         iv = (ImageView) view.findViewById(R.id.iv_home);
+         tv_home = view.findViewById(R.id.tv_home);
+
+        // 创建空白的bitmap
+        Bitmap bitmap = Bitmap.createBitmap(400, 400, Bitmap.Config.ARGB_8888);
+        // 新建画布,关联bitmap
+        Canvas canvas = new Canvas(bitmap);
+        // 绘制黑色背景
+        canvas.drawColor(Color.BLACK);
+        Bitmap map = BitmapFactory.decodeResource(this.getContext().getResources(),R.mipmap.kong);
+        canvas.drawBitmap(map,0,0,null);
+        // 定义画笔
+        Paint paint = new Paint();
+        // 绘制点
+        paint.setStrokeWidth(10);
+        paint.setColor(Color.RED);
+        canvas.drawPoint(10,10,paint);
+        //显示bitmap到ImageView中
+        iv.setImageBitmap(bitmap);
+
+
+        return view;
     }
 }

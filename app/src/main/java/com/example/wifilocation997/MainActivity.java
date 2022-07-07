@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
         RadioGroup rg_main = findViewById(R.id.rg_main);
 
         //每一页的对象
-        homeFragment = new HomeFragment();
+        homeFragment = HomeFragment.newInstance("","");
         pathFragment = new PathFragment();
         friendFragment = new FriendFragment();
         thingsFragment = new ThingsFragment();

@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">WiFiLocation997</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!--    导航栏字体图标-->
+    <string name="home">&#x100d9;</string>
+    <string name="things">&#x100da;</string>
+    <string name="setting">&#x100db;</string>
+    <string name="path">&#x100dc;</string>
+    <string name="friend">&#x100dd;</string>
+
+</resources>

@@ -113,6 +113,7 @@ public class OKHttpUtil {
                 client=getInstance();
                 Log.d("同步post请求地址：",finalAddress);
                 FormBody.Builder formBody = new FormBody.Builder();
+                Log.d("传给服务器的json",json);
                 formBody.add("json",json);
                 request=new Request.Builder()
                         .url(finalAddress)

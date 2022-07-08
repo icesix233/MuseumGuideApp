@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.wifilocation997.Constant.Constant;
 import com.example.wifilocation997.entity.User;
 import com.example.wifilocation997.util.OKHttpUtil;
 import com.google.gson.Gson;
@@ -46,9 +47,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private EditText et_username;
     private EditText et_password;
     private Button btn_reg;
-    private String username;
-    private String password;
-    private String baseUrl="http://192.168.xxx.1:8081";
+    private String baseUrl= Constant.baseURL;
+    private User user_success = null;
 
 //    private Handler handler = new Handler(){
 //        @Override
@@ -74,74 +74,100 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.activity_login);
         btn_login = findViewById(R.id.btn_login);
         btn_reg = findViewById(R.id.btn_reg);
+        Button btn_forget = findViewById(R.id.btn_forget);
         et_username = findViewById(R.id.et_username);
         et_password = findViewById(R.id.et_password);
 
         btn_login.setOnClickListener(this);
-        btn_reg.setOnClickListener(this);    }
+        btn_reg.setOnClickListener(this);
+        btn_forget.setOnClickListener(this);
+    }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()){
+            //登录按钮
             case R.id.btn_login:
                 //TODO：判断用户名和密码
-                username = et_username.getText().toString();
-                password = et_password.getText().toString();
-                User user=new User();
+                String username = et_username.getText().toString();
+                String password = et_password.getText().toString();
+                User user=new User(username,password);
                 Gson gson=new Gson();
                 String json=gson.toJson(user);
                 String args[]=new String[]{"user","login"};
-                String res= OKHttpUtil.postSyncRequest(baseUrl,json,args);
-                Log.d("同步:",res);
-
-
-                //提示用户登陆成功
-                Intent intent1 = new Intent(this,MainActivity.class);
-                startActivity(intent1);
-                finish();
+                try {
+                    String res= OKHttpUtil.postSyncRequest(baseUrl,json,args);
+                    Log.d("同步:",res);
+                    user_success = gson.fromJson(res,User.class);
+                }catch (Exception e){
+                    //连接失败
+                    Toast.makeText(this,"请检查网络连接",Toast.LENGTH_SHORT).show();
+                }
+                if(user_success.getUser_number()==2){
+                    //密码错误
+                    Toast.makeText(this,"密码错误",Toast.LENGTH_SHORT).show();
+                }else if(user_success.getUser_number()==1){
+                    //用户名不存在
+                    Toast.makeText(this,"用户名不存在",Toast.LENGTH_SHORT).show();
+                }else {
+                    //登录成功
+                    Toast.makeText(this,"登录成功",Toast.LENGTH_SHORT).show();
+                    Intent intent1 = new Intent(this,MainActivity.class);
+                    startActivity(intent1);
+                    finish();
+                }
                 break;
+            //注册按钮
             case R.id.btn_reg:
                 Intent intent2 = new Intent(this,RegisterActivity.class);
                 startActivity(intent2);
                 finish();
                 break;
+            //找回密码
+            case R.id.btn_forget:
+                //测试时，以游客模式登录
+                Intent intent1 = new Intent(this,MainActivity.class);
+                startActivity(intent1);
+                finish();
         }
     }
-    //post同步请求（json对象）
-    private void okhttpData(){
-        Log.i("TAG","--ok-");
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                OkHttpClient client=new OkHttpClient();
-                //使用JSONObject封装参数
-                MediaType mediaType  = MediaType.parse("application/json;charset=utf-8");
-                JSONObject json = new JSONObject();
-                try {
-                    json.put("user_name",username);
-                    json.put("password",password);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                //创建RequestBody对象，将参数按照指定的MediaType封装
-                RequestBody requestBody = RequestBody.create(mediaType,json.toString());
 
-                Request request = new Request
-                        .Builder()
-                        .post(requestBody)//Post请求的参数传递
-                        .url("https://h5556095v9.zicp.fun/user/login")
-                        .build();
-                try {
-                    Response response = client.newCall(request).execute();
-                    String result = response.body().string();
-                    Log.d("PAN",result);
-                    response.body().close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }).start();
-    }
+
+//    //post同步请求（json对象）
+//    private void okhttpData(){
+//        Log.i("TAG","--ok-");
+//        new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                OkHttpClient client=new OkHttpClient();
+//                //使用JSONObject封装参数
+//                MediaType mediaType  = MediaType.parse("application/json;charset=utf-8");
+//                JSONObject json = new JSONObject();
+//                try {
+//                    json.put("user_name",username);
+//                    json.put("password",password);
+//                } catch (JSONException e) {
+//                    e.printStackTrace();
+//                }
+//                //创建RequestBody对象，将参数按照指定的MediaType封装
+//                RequestBody requestBody = RequestBody.create(mediaType,json.toString());
+//
+//                Request request = new Request
+//                        .Builder()
+//                        .post(requestBody)//Post请求的参数传递
+//                        .url("https://h5556095v9.zicp.fun/user/login")
+//                        .build();
+//                try {
+//                    Response response = client.newCall(request).execute();
+//                    String result = response.body().string();
+//                    Log.d("PAN",result);
+//                    response.body().close();
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        }).start();
+//    }
 
 
 //

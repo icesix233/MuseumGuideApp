@@ -1,24 +1,27 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/navajowhite"
-    android:orientation="vertical" >
+    android:orientation="vertical">
 
     <include layout="@layout/title_show" />
 
     <ScrollView
         android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
         android:layout_height="wrap_content" >
 
         <GridLayout
+
             android:id="@+id/gl_channel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:columnCount="1" />
+
     </ScrollView>
 
 </LinearLayout>

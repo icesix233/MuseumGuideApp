@@ -6,16 +6,22 @@
     android:layout_gravity="center"
     android:background="@color/mistyrose"
     android:gravity="center"
-    android:layout_marginTop="20dp"
+    android:layout_marginTop="30dp"
     android:layout_marginBottom="10dp"
     android:orientation="vertical">
 
+
     <ImageView
         android:id="@+id/iv_biankuang"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_width="370dp"
+        android:layout_height="30dp"
         android:scaleType="fitCenter"
-        tools:src="@drawable/biankuang" />
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        tools:background="@drawable/biankuang" />
+
 
     <TextView
         android:id="@+id/tv_name"
@@ -30,13 +36,15 @@
     <ImageView
         android:id="@+id/iv_thumb"
         android:layout_width="300dp"
-        android:layout_height="200dp"
+        android:layout_height="210dp"
         android:scaleType="fitCenter"
+        android:gravity="center"
         tools:src="@drawable/changchengsong" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:gravity="center"
         android:orientation="horizontal">
 
         <TextView
@@ -61,12 +69,12 @@
             android:gravity="center"
             android:text="了解详情"
             android:textColor="@color/black"
-            android:shadowColor="@color/mistyrose"
             android:layout_marginLeft="40dp"
             android:layout_marginRight="40dp"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
             android:textSize="18sp" />
     </LinearLayout>
+
 
 </LinearLayout>

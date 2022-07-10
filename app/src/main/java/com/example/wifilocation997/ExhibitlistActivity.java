@@ -78,6 +78,7 @@ public class ExhibitlistActivity extends AppCompatActivity {
             TextView tv_name = view.findViewById(R.id.tv_name);
             TextView tv_position = view.findViewById(R.id.tv_position);
             Button btn_add = view.findViewById(R.id.btn_add);
+            iv_biankuang.setImageResource(R.drawable.biankuang);
             iv_thumb.setImageURI(Uri.parse(info.pic_path));
             tv_name.setText(info.exhibit_name);
             tv_position.setText(info.position);

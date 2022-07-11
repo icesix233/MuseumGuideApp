@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="start">
+        <item>当前位置</item>
+        <item>《长城颂》漆画</item>
+        <item>一大会址复原场景</item>
+        <item>开国大典影像</item>
+    </string-array>
+
+    <string-array name="end">
+        <item>《长城颂》漆画</item>
+        <item>一大会址复原场景</item>
+        <item>开国大典影像</item>
+    </string-array>
+</resources>

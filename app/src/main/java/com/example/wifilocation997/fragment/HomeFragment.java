@@ -74,9 +74,9 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-         View view = inflater.inflate(R.layout.fragment_home, container, false);
-         iv = (ImageView) view.findViewById(R.id.iv_home);
-         tv_home = view.findViewById(R.id.tv_home);
+        View view = inflater.inflate(R.layout.fragment_home, container, false);
+        iv = (ImageView) view.findViewById(R.id.iv_home);
+        //tv_home = view.findViewById(R.id.tv_home);
 
         // 创建空白的bitmap
         Bitmap bitmap = Bitmap.createBitmap(400, 400, Bitmap.Config.ARGB_8888);

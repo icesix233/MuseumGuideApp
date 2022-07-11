@@ -1,14 +1,161 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F6E9DC"
     tools:context=".fragment.PathFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:gravity="center"
+        android:text="中国共产党历史展览馆"
+        android:textSize="40dp"
+        android:textColor="@drawable/text_color" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:text="推荐路线"
+        android:textSize="25dp"
+        android:textColor="@drawable/text_color" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="vertical"
+        android:layout_margin="5dp"
+        android:background="@drawable/round_radius">
+
+        <TextView
+            android:id="@+id/tv_path1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="《长城颂》漆画→一大会址复原场景→开国大典影像→党的七大投票箱→创办经济特区图片→遵义会议复原景观"
+            android:textSize="20dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="vertical"
+        android:layout_margin="5dp"
+        android:background="@drawable/round_radius">
+
+        <TextView
+            android:id="@+id/tv_path2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="《长城颂》漆画→党的七大投票箱→一大会址复原场景→遵义会议复原景观→创办经济特区图片→开国大典影像"
+            android:textSize="20dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="vertical"
+        android:layout_margin="5dp"
+        android:background="@drawable/round_radius">
+
+        <TextView
+            android:id="@+id/tv_path3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="《长城颂》漆画→创办经济特区图片→一大会址复原场景→开国大典影像→党的七大投票箱→遵义会议复原景观"
+            android:textSize="20dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="vertical"
+        android:layout_margin="5dp"
+        android:background="@drawable/round_radius">
+
+        <TextView
+            android:id="@+id/tv_path4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="《长城颂》漆画→遵义会议复原景观→创办经济特区图片→一大会址复原场景→开国大典影像→党的七大投票箱"
+            android:textSize="20dp" />
+    </LinearLayout>
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="PATH" />
+        android:orientation="vertical"
+        android:background="#F6E9DC"
+        >
 
-</FrameLayout>
+        <RadioGroup
+            android:id="@+id/rg_main"
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:layout_alignParentBottom="true"
+            android:background="#F6E9DC"
+            android:orientation="horizontal">
+
+
+            <RadioButton
+                android:id="@+id/home"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="@mipmap/guide2"
+                android:gravity="center">
+
+            </RadioButton>
+
+            <RadioButton
+                android:id="@+id/path"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="@mipmap/path1"
+                android:gravity="center">
+
+            </RadioButton>
+
+            <RadioButton
+                android:id="@+id/friend"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="@mipmap/friend2"
+                android:gravity="center"></RadioButton>
+
+            <RadioButton
+                android:id="@+id/things"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="@mipmap/exhibition2"
+                android:gravity="center"></RadioButton>
+
+            <RadioButton
+                android:id="@+id/setting"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="@mipmap/setting2"
+                android:gravity="center"></RadioButton>
+        </RadioGroup>
+
+    </RelativeLayout>
+</LinearLayout>

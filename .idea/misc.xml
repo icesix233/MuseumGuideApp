@@ -3,6 +3,21 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android-studio/AndroidStudioProjects/MuseumGuideApp/app/src/main/res/drawable/bottom_border.xml" value="0.126" />
+        <entry key="..\:/Android-studio/AndroidStudioProjects/MuseumGuideApp/app/src/main/res/drawable/circle.xml" value="0.1105" />
+        <entry key="..\:/Android-studio/AndroidStudioProjects/MuseumGuideApp/app/src/main/res/drawable/round_radius.xml" value="0.10400000000000001" />
+        <entry key="..\:/Android-studio/AndroidStudioProjects/MuseumGuideApp/app/src/main/res/layout/activity_detail.xml" value="0.16770833333333332" />
+        <entry key="..\:/Android-studio/AndroidStudioProjects/MuseumGuideApp/app/src/main/res/layout/activity_exhibitlist.xml" value="0.264" />
+        <entry key="..\:/Android-studio/AndroidStudioProjects/MuseumGuideApp/app/src/main/res/layout/activity_login.xml" value="0.25364583333333335" />
+        <entry key="..\:/Android-studio/AndroidStudioProjects/MuseumGuideApp/app/src/main/res/layout/activity_main.xml" value="0.25364583333333335" />
+        <entry key="..\:/Android-studio/AndroidStudioProjects/MuseumGuideApp/app/src/main/res/layout/activity_register.xml" value="0.25364583333333335" />
+        <entry key="..\:/Android-studio/AndroidStudioProjects/MuseumGuideApp/app/src/main/res/layout/fragment_friend.xml" value="0.25364583333333335" />
+        <entry key="..\:/Android-studio/AndroidStudioProjects/MuseumGuideApp/app/src/main/res/layout/fragment_home.xml" value="0.264" />
+        <entry key="..\:/Android-studio/AndroidStudioProjects/MuseumGuideApp/app/src/main/res/layout/fragment_path.xml" value="0.25364583333333335" />
+        <entry key="..\:/Android-studio/AndroidStudioProjects/MuseumGuideApp/app/src/main/res/layout/fragment_setting.xml" value="0.2" />
+        <entry key="..\:/Android-studio/AndroidStudioProjects/MuseumGuideApp/app/src/main/res/layout/fragment_things.xml" value="0.25364583333333335" />
+        <entry key="..\:/Android-studio/AndroidStudioProjects/MuseumGuideApp/app/src/main/res/layout/item_goods.xml" value="0.16770833333333332" />
+        <entry key="..\:/Android-studio/AndroidStudioProjects/MuseumGuideApp/app/src/main/res/layout/title_show.xml" value="0.16875" />
         <entry key="..\:/Workspace/Android/WiFiLocation997/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
         <entry key="..\:/Workspace/Android/WiFiLocation997/app/src/main/res/drawable-v24/round_button_lightgray.xml" value="0.159" />
         <entry key="..\:/Workspace/Android/WiFiLocation997/app/src/main/res/drawable-v24/roundbutton_gray.xml" value="0.2985" />
@@ -31,7 +46,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_X" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

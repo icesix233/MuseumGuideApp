@@ -1,14 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical"
+android:background="#F6E9DC"
+tools:context=".fragment.ThingsFragment">
+
+<RadioGroup
+    android:id="@+id/rg_main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".fragment.ThingsFragment">
+    android:layout_height="75dp"
+    android:layout_alignParentBottom="true"
+    android:background="#F6E9DC"
+    android:orientation="horizontal">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
+
+    <RadioButton
+        android:id="@+id/home"
+        android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:text="THINGS" />
+        android:layout_margin="5dp"
+        android:layout_weight="1"
+        android:background="@mipmap/guide2"
+        android:gravity="center">
 
-</FrameLayout>
+    </RadioButton>
+
+    <RadioButton
+        android:id="@+id/path"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_margin="5dp"
+        android:layout_weight="1"
+        android:background="@mipmap/path2"
+        android:gravity="center">
+
+    </RadioButton>
+
+    <RadioButton
+        android:id="@+id/friend"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_margin="5dp"
+        android:layout_weight="1"
+        android:background="@mipmap/friend2"
+        android:gravity="center"></RadioButton>
+
+    <RadioButton
+        android:id="@+id/things"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_margin="5dp"
+        android:layout_weight="1"
+        android:background="@mipmap/exhibition1"
+        android:gravity="center"></RadioButton>
+
+    <RadioButton
+        android:id="@+id/setting"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_margin="5dp"
+        android:layout_weight="1"
+        android:background="@mipmap/setting2"
+        android:gravity="center"></RadioButton>
+</RadioGroup>
+
+</RelativeLayout>

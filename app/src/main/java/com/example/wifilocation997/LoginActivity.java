@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.example.wifilocation997.Constant.Constant;
 import com.example.wifilocation997.entity.User;
+import com.example.wifilocation997.fragment.HomeFragment;
 import com.example.wifilocation997.util.OKHttpUtil;
 import com.google.gson.Gson;
 import com.zhy.http.okhttp.OkHttpUtils;
@@ -112,7 +113,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 }else {
                     //登录成功
                     Toast.makeText(this,"登录成功",Toast.LENGTH_SHORT).show();
-                    Intent intent1 = new Intent(this,MainActivity.class);
+                    Intent intent1 = new Intent(this, HomeActivity.class);
                     startActivity(intent1);
                     finish();
                 }
@@ -126,7 +127,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             //找回密码
             case R.id.btn_forget:
                 //测试时，以游客模式登录
-                Intent intent1 = new Intent(this,MainActivity.class);
+                Intent intent1 = new Intent(this,HomeActivity.class);
                 startActivity(intent1);
                 finish();
         }

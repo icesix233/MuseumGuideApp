@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg"
+    android:background="#F6E9DC"
     android:orientation="vertical"
     tools:context=".LoginActivity">
 
@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="HELLO"
-        android:textColor="@color/dodgerblue"
+        android:textColor="#E16D6D"
         android:textSize="70sp"
         android:textStyle="bold" />
 
@@ -59,7 +59,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="12sp"
-        android:background="@drawable/round_button_blue"
+        android:background="#E16D6D"
         android:text="登录"
         android:textSize="@dimen/button_font_size" />
 

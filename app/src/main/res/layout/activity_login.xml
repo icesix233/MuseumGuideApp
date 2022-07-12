@@ -50,6 +50,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:background="@drawable/round_edittext_whitesmoke"
+        android:inputType="textPassword"
         android:paddingTop="12dp"
         android:textSize="30sp" />
 
@@ -80,7 +81,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_margin="12sp"
         android:background="@drawable/round_button_lightgray"
-        android:text="忘记密码"
+        android:text="游客模式"
         android:textSize="@dimen/button_font_size" />
 
 </LinearLayout>

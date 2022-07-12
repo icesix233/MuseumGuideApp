@@ -19,11 +19,11 @@ public class GetWifi{
     private final String TAG = "Y30J";
     private static final int PERMISSIONS_REQUEST_CODE_ACCESS_FINE_LOCATION = 1000;
     private final int UPDATE_UI_REQUEST_CODE = 1024;
-    private final String BASE0 = "happyhome";
-    private final String BASE1 = "Pokemmo";
-    private final String BASE2 = "CMCC-MC5A";
-    private final String BASE3 = "midea_fa_2503";
-    private final String BASE4 = "ChinaNet-eq7k";
+    private final String BASE0 = "d4:35:38:92:73:ca";//Redmi_0FA2
+    private final String BASE1 = "b4:d0:a9:d6:c6:a7";//CMCC-SSNS
+    private final String BASE2 = "ae:12:03:3c:93:3f";//computer1 wifi
+    private final String BASE3 = "5c:de:34:6c:96:cb";//MERCURY_96CA
+    private final String BASE4 = "aa:ac:ef:13:e5:dc";//G8 ThinQ
 
     //这里是访问地址
     private final String baseUrl = "https://h5556095v9.zicp.fun";
@@ -67,7 +67,7 @@ private Activity activity;
         fingerPrint = new FingerPrint(0, 0, -100, -100, -100, -100, -100);
         List<ScanResult> scanResults = mWifiManager.getScanResults();
         for (ScanResult sr : scanResults) {
-            switch (sr.SSID) {
+            switch (sr.BSSID) {
                 case BASE0:
                     fingerPrint.setSs1(sr.level);
                     break;

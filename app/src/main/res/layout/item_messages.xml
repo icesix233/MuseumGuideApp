@@ -1,0 +1,75 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mm_item"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@color/mistyrose"
+    android:gravity="center"
+    android:layout_marginTop="30dp"
+    android:layout_marginBottom="10dp"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/mm_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="5dp"
+        android:layout_weight="2"
+        android:gravity="center"
+        android:textColor="@color/indianred"
+        android:textSize="20sp"
+        tools:text="    100年来，我们党之所以能够在危难之际绝处逢生、失误之后拨乱反正，成为永远打不倒、压不垮的马克思主义政党，关键就在于我们党总是在推动社会革命的同时，勇于推动自我革命，始终坚持真理、修正错误，敢于正视问题。历史深刻表明：中国共产党的伟大不在于不犯错误，而在于敢于直面问题，勇于自我革命，具有极强的自我修复能力。新的征程上，我们要始终牢记初心使命、坚持推进自我革命，不断纯洁党的思想、纯洁党的组织、纯洁党的作风，确保党在新时代坚持和发展中国特色社会主义的历史进程中始终成为坚强领导核心。" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/mm_user"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginBottom="5dp"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:textColor="@color/indianred"
+            android:textSize="24sp"
+            tools:text="CURRY" />
+
+        <TextView
+            android:id="@+id/mm_date"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:textColor="@color/indianred"
+            android:textSize="24sp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            tools:text="2022.8.10" />
+
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/iv_biankuang"
+        android:layout_width="370dp"
+        android:layout_height="30dp"
+        android:scaleType="fitCenter"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        tools:background="@drawable/biankuang" />
+</LinearLayout>

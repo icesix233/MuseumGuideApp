@@ -40,7 +40,7 @@
                 android:layout_height="wrap_content"
                 android:paddingLeft="5dp"
                 android:gravity="center"
-                android:textColor="@color/black"
+                android:textColor="@color/indianred"
                 android:textSize="40sp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
@@ -94,9 +94,25 @@
                 tools:text="走进展览馆，首先映入眼帘的就是这幅《长城颂》巨幅漆画。穿梭于群山峰峦中的长城，盘旋而上、起伏蜿蜒直入云海深处，气势雄壮地展现中国共产党是时代先锋、民族脊梁。
 这幅漆画长40米、高15米，由100块漆板拼接而成，作者是清华大学美术学院教授程向军。在中国共产党成立100周年纪念币、《中国共产党成立100周年》纪念封上都有《长城颂》的身影。" />
 
+            <TextView
+                android:id="@+id/me_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:textColor="@color/indianred"
+                android:textSize="40sp"
+                tools:text="留言板" />
+
+            <GridLayout
+                android:id="@+id/message_board"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:columnCount="1" />
+
         </LinearLayout>
     </ScrollView>
-
-
-
 </LinearLayout>

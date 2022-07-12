@@ -20,7 +20,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     private Button btn_reg_confirm;
     private EditText et_reg_username;
     private EditText et_reg_password;
-    private View et_reg_confirmpwd;
+    private EditText et_reg_confirmpwd;
     private String baseUrl=Constant.baseURL;
 
     @Override
@@ -42,21 +42,27 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         //TODO：判断用户名和密码
         String username = et_reg_username.getText().toString();
         String password = et_reg_password.getText().toString();
-        User user=new User(username,password);
-        Gson gson=new Gson();
-        String json=gson.toJson(user);
-        String args[]=new String[]{"user","register"};
-        String res= OKHttpUtil.postSyncRequest(baseUrl,json,args);
-        Log.d("同步:",res);
-        if(res.equals("false")){
-            //已有该用户
-            Toast.makeText(this,"该用户已存在",Toast.LENGTH_SHORT).show();
-        } else {
-            //注册成功
-            Toast.makeText(this,"注册成功",Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(this,LoginActivity.class);
-            startActivity(intent);
-            finish();
+        String confirm_pwd = et_reg_confirmpwd.getText().toString();
+        if(!password.equals(confirm_pwd)){
+            Toast.makeText(this,"两次输入的密码不一致",Toast.LENGTH_SHORT).show();
+        }else{
+            User user=new User(username,password);
+            Gson gson=new Gson();
+            String json=gson.toJson(user);
+            String args[]=new String[]{"user","register"};
+            String res= OKHttpUtil.postSyncRequest(baseUrl,json,args);
+            Log.d("同步:",res);
+            if(res.equals("false")){
+                //已有该用户
+                Toast.makeText(this,"该用户已存在",Toast.LENGTH_SHORT).show();
+            } else {
+                //注册成功
+                Toast.makeText(this,"注册成功",Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(this,LoginActivity.class);
+                startActivity(intent);
+                finish();
+            }
         }
+
     }
 }

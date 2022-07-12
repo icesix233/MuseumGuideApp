@@ -313,8 +313,8 @@ public class MySurfaceView  extends SurfaceView
     }
 
 
-    public static final double RelativeDisPerX = 0.0585;    //代表地图上的每格X占到了地图宽度的比例
-    public static final double RelativeDisPerY = 0.0660;    //代表地图上的每格Y占到了地图高度的比例
+    public static final double RelativeDisPerX = 0.0746;    //代表地图上的每格X占到了地图宽度的比例
+    public static final double RelativeDisPerY = 0.1012;    //代表地图上的每格Y占到了地图高度的比例
     private void getXY() {
         Switch switch_location = getRootView().findViewById(R.id.switch_location);
         if(switch_location.isChecked()){

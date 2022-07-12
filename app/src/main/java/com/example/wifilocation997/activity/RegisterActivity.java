@@ -1,4 +1,4 @@
-package com.example.wifilocation997;
+package com.example.wifilocation997.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.wifilocation997.Constant.Constant;
+import com.example.wifilocation997.R;
 import com.example.wifilocation997.entity.User;
 import com.example.wifilocation997.util.OKHttpUtil;
 import com.google.gson.Gson;

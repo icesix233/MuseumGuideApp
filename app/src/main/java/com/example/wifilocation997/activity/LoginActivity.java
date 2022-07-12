@@ -1,13 +1,9 @@
-package com.example.wifilocation997;
+package com.example.wifilocation997.activity;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -15,24 +11,10 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.wifilocation997.Constant.Constant;
+import com.example.wifilocation997.R;
 import com.example.wifilocation997.entity.User;
 import com.example.wifilocation997.util.OKHttpUtil;
 import com.google.gson.Gson;
-import com.zhy.http.okhttp.OkHttpUtils;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.IOException;
-
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.FormBody;
-import okhttp3.MediaType;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.RequestBody;
-import okhttp3.Response;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -95,8 +77,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 Gson gson=new Gson();
                 String json=gson.toJson(user);
                 String args[]=new String[]{"user","login"};
+                String res = null;//服务器传回的json字符串
                 try {
-                    String res= OKHttpUtil.postSyncRequest(baseUrl,json,args);
+                    res= OKHttpUtil.postSyncRequest(baseUrl,json,args);
                     Log.d("同步:",res);
                     user_success = gson.fromJson(res,User.class);
                 }catch (Exception e){
@@ -113,6 +96,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     //登录成功
                     Toast.makeText(this,"登录成功",Toast.LENGTH_SHORT).show();
                     Intent intent1 = new Intent(this,MainActivity.class);
+                    intent1.putExtra("user_json",res);
                     startActivity(intent1);
                     finish();
                 }
@@ -127,6 +111,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             case R.id.btn_forget:
                 //测试时，以游客模式登录
                 Intent intent1 = new Intent(this,MainActivity.class);
+                intent1.putExtra("user_json","null");
                 startActivity(intent1);
                 finish();
         }

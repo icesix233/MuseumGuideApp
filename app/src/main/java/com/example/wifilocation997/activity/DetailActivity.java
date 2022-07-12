@@ -1,4 +1,4 @@
-package com.example.wifilocation997;
+package com.example.wifilocation997.activity;
 //
 //import androidx.appcompat.app.AppCompatActivity;
 //
@@ -14,18 +14,16 @@ package com.example.wifilocation997;
 //}
 
 
-import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.wifilocation997.R;
 import com.example.wifilocation997.database.ExhibitDBHelper;
 import com.example.wifilocation997.entity.Exhibit;
-import com.example.wifilocation997.fragment.HomeFragment;
 
 public class DetailActivity extends AppCompatActivity {
 
@@ -44,7 +42,7 @@ public class DetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detail);
         tv_title = findViewById(R.id.tv_title);
         tv_goods_position = findViewById(R.id.tv_goods_position);
-        tv_name = findViewById(R.id.tv_name);
+        tv_name = findViewById(R.id.tv_username);
         tv_goods_introduction = findViewById(R.id.tv_goods_introduction);
         tv_year = findViewById(R.id.tv_year);
         iv_goods_pic = findViewById(R.id.iv_goods_pic);

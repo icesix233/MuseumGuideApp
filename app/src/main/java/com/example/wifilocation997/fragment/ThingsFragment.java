@@ -15,7 +15,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.example.wifilocation997.DetailActivity;
+import com.example.wifilocation997.activity.DetailActivity;
 import com.example.wifilocation997.R;
 import com.example.wifilocation997.database.ExhibitDBHelper;
 import com.example.wifilocation997.entity.Exhibit;
@@ -103,7 +103,7 @@ public class ThingsFragment extends Fragment {
             View view = LayoutInflater.from(this.getActivity()).inflate(R.layout.item_goods, null);
             ImageView iv_biankuang = view.findViewById(R.id.iv_biankuang);
             ImageView iv_thumb = view.findViewById(R.id.iv_thumb);
-            TextView tv_name = view.findViewById(R.id.tv_name);
+            TextView tv_name = view.findViewById(R.id.tv_username);
             TextView tv_position = view.findViewById(R.id.tv_position);
             Button btn_add = view.findViewById(R.id.btn_add);
             iv_biankuang.setImageResource(R.drawable.biankuang);

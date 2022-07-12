@@ -11,7 +11,7 @@ android:shape="rectangle" >
  -->
 <padding
     android:bottom="5dp"
-    android:left="5dp"
+    android:left="20dp"
     android:right="5dp"
     android:top="5dp"
     />
@@ -19,18 +19,22 @@ android:shape="rectangle" >
 <!-- 设置圆角矩形
      radius:圆角弧度，核心代码
 -->
-<corners android:radius="15dp" />
+<!--<corners android:radius="15dp" />-->
     <!-- 设置按钮的四个角为弧形 -->
     <!-- android:radius 弧形的半径 -->
-
+    <corners
+        android:bottomLeftRadius="0dp"
+        android:bottomRightRadius="0dp"
+        android:topLeftRadius="15dp"
+        android:topRightRadius="15dp" />
 
 <!-- 设置描边效果
      width:描边宽度
      color:描边颜色
  -->
-<stroke
-    android:width="2px"
-    android:color="#001E90FF" />
+<!--<stroke-->
+<!--    android:width="2px"-->
+<!--    android:color="#001E90FF" />-->
 
 <!-- 设置填充效果
      color:填充颜色

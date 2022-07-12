@@ -1,6 +1,5 @@
-package com.example.wifilocation997;
+package com.example.wifilocation997.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -14,9 +13,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.wifilocation997.R;
 import com.example.wifilocation997.database.ExhibitDBHelper;
 import com.example.wifilocation997.entity.Exhibit;
-import com.example.wifilocation997.util.ToastUtil;
+
 import java.util.List;
 
 
@@ -75,7 +75,7 @@ public class ExhibitlistActivity extends AppCompatActivity {
             View view = LayoutInflater.from(this).inflate(R.layout.item_goods, null);
             ImageView iv_biankuang = view.findViewById(R.id.iv_biankuang);
             ImageView iv_thumb = view.findViewById(R.id.iv_thumb);
-            TextView tv_name = view.findViewById(R.id.tv_name);
+            TextView tv_name = view.findViewById(R.id.tv_username);
             TextView tv_position = view.findViewById(R.id.tv_position);
             Button btn_add = view.findViewById(R.id.btn_add);
             iv_biankuang.setImageResource(R.drawable.biankuang);

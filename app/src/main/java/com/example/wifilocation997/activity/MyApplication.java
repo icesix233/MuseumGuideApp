@@ -1,4 +1,4 @@
-package com.example.wifilocation997;
+package com.example.wifilocation997.activity;
 
 import android.app.Application;
 import android.content.res.Configuration;

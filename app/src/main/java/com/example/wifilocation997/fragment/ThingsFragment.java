@@ -6,6 +6,8 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.os.Looper;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,12 +15,18 @@ import android.widget.Button;
 import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.wifilocation997.activity.DetailActivity;
 import com.example.wifilocation997.R;
+import com.example.wifilocation997.activity.MainActivity;
 import com.example.wifilocation997.database.ExhibitDBHelper;
+import com.example.wifilocation997.entity.Coordinate;
 import com.example.wifilocation997.entity.Exhibit;
+import com.example.wifilocation997.entity.User;
+import com.example.wifilocation997.util.GetWifi;
 
 import java.util.List;
 
@@ -29,7 +37,7 @@ import java.util.List;
  */
 public class ThingsFragment extends Fragment {
 
-    // 声明一个商品数据库的帮助器对象
+    // 声明一个展品数据库的帮助器对象
     private ExhibitDBHelper mDBHelper;
     private GridLayout gl_channel;
 
@@ -41,6 +49,8 @@ public class ThingsFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private double x=3;
+    private double y=2;
 
     public ThingsFragment() {
         // Required empty public constructor
@@ -89,14 +99,20 @@ public class ThingsFragment extends Fragment {
         return view;
     }
     private void showGoods() {
-// 商品条目是一个线性布局，设置布局的宽度为屏幕的一半
+        // 展品条目是一个线性布局，设置布局的宽度为屏幕宽度
         int screenWidth = getResources().getDisplayMetrics().widthPixels;
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(screenWidth , LinearLayout.LayoutParams.WRAP_CONTENT);
-        // 查询商品数据库中的所有商品记录
+        // 查询展品数据库中的所有展品记录
         List<Exhibit> list = mDBHelper.queryAllGoodsInfo();
 
         // 移除下面的所有子视图
         gl_channel.removeAllViews();
+
+        //获取当前坐标
+        getXY();
+        Log.d("PAN", String.valueOf(x));
+        Log.d("PAN", String.valueOf(y));
+
 
         for (Exhibit info : list) {
             // 获取布局文件item_goods.xml的根视图
@@ -111,14 +127,21 @@ public class ThingsFragment extends Fragment {
             tv_name.setText(info.exhibit_name);
             tv_position.setText(info.position);
 
-            // 点击展品按钮，跳转到商品详情页面
+            // 点击展品按钮，跳转到展品详情页面
             btn_add.setOnClickListener(v -> {
                 Intent intent = new Intent(this.getActivity(), DetailActivity.class);
                 intent.putExtra("exhibit_number", info.exhibit_number);
+                MainActivity mainActivity = (MainActivity) getActivity();
+                User user = mainActivity.getUser();
+                String user_name=null;
+                if(user!=null){
+                    user_name=user.getUser_name();
+                }
+                intent.putExtra("user_name",user_name);
                 startActivity(intent);
             });
 
-            // 把商品视图添加到网格布局
+            // 把展品视图添加到网格布局
             gl_channel.addView(view, params);
         }
     }
@@ -127,4 +150,22 @@ public class ThingsFragment extends Fragment {
         super.onDestroy();
         mDBHelper.closeLink();
     }
+
+    private void getXY() {
+        GetWifi getWifi = new GetWifi(getActivity());
+        Coordinate coordinate = getWifi.scanWifi();
+        if (coordinate == null) {
+            //错误
+            Log.e("error", "坐标对象为空");
+            //在子线程中实现Toast
+            Looper.prepare();
+            Toast.makeText(getContext(), "服务器响应超时", Toast.LENGTH_SHORT).show();
+            Looper.loop();
+        } else {
+            x = coordinate.getPositionX();
+            y = coordinate.getPositionY();
+            Toast.makeText(getContext(), "X:" + String.valueOf(x) + "Y:" + String.valueOf(y), Toast.LENGTH_SHORT).show();
+        }
+    }
+
 }

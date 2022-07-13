@@ -29,7 +29,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private EditText et_username;
     private EditText et_password;
     private Button btn_reg;
-    private String baseUrl= Constant.baseURL;
+    private String baseUrl = Constant.baseURL_ypy;
     private User user_success = null;
 
 //    private Handler handler = new Handler(){
@@ -67,51 +67,50 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
+        switch (view.getId()) {
             //登录按钮
             case R.id.btn_login:
                 //TODO：判断用户名和密码
                 String username = et_username.getText().toString();
                 String password = et_password.getText().toString();
-                User user=new User(username,password);
-                Gson gson=new Gson();
-                String json=gson.toJson(user);
-                String args[]=new String[]{"user","login"};
+                User user = new User(username, password);
+                Gson gson = new Gson();
+                String json = gson.toJson(user);
+                String args[] = new String[]{"user", "login"};
                 String res = null;//服务器传回的json字符串
-                try {
-                    res= OKHttpUtil.postSyncRequest(baseUrl,json,args);
-                    Log.d("同步:",res);
-                    user_success = gson.fromJson(res,User.class);
-                }catch (Exception e){
-                    //连接失败
-                    Toast.makeText(this,"请检查网络连接",Toast.LENGTH_SHORT).show();
-                }
-                if(user_success.getUser_number()==2){
-                    //密码错误
-                    Toast.makeText(this,"密码错误",Toast.LENGTH_SHORT).show();
-                }else if(user_success.getUser_number()==1){
-                    //用户名不存在
-                    Toast.makeText(this,"用户名不存在",Toast.LENGTH_SHORT).show();
-                }else {
-                    //登录成功
-                    Toast.makeText(this,"登录成功",Toast.LENGTH_SHORT).show();
-                    Intent intent1 = new Intent(this,MainActivity.class);
-                    intent1.putExtra("user_json",res);
-                    startActivity(intent1);
-                    finish();
+                res = OKHttpUtil.postSyncRequest(baseUrl, json, args);
+                if(res==null){
+                    Toast.makeText(this, "服务器响应超时", Toast.LENGTH_SHORT).show();
+                }else{
+                    Log.d("同步:", res);
+                    user_success = gson.fromJson(res, User.class);
+                    if (user_success.getUser_number() == 2) {
+                        //密码错误
+                        Toast.makeText(this, "密码错误", Toast.LENGTH_SHORT).show();
+                    } else if (user_success.getUser_number() == 1) {
+                        //用户名不存在
+                        Toast.makeText(this, "用户名不存在", Toast.LENGTH_SHORT).show();
+                    } else {
+                        //登录成功
+                        Toast.makeText(this, "登录成功", Toast.LENGTH_SHORT).show();
+                        Intent intent1 = new Intent(this, MainActivity.class);
+                        intent1.putExtra("user_json", res);
+                        startActivity(intent1);
+                        finish();
+                    }
                 }
                 break;
             //注册按钮
             case R.id.btn_reg:
-                Intent intent2 = new Intent(this,RegisterActivity.class);
+                Intent intent2 = new Intent(this, RegisterActivity.class);
                 startActivity(intent2);
                 finish();
                 break;
             //找回密码
             case R.id.btn_forget:
                 //测试时，以游客模式登录
-                Intent intent1 = new Intent(this,MainActivity.class);
-                intent1.putExtra("user_json","null");
+                Intent intent1 = new Intent(this, MainActivity.class);
+                intent1.putExtra("user_json", "null");
                 startActivity(intent1);
                 finish();
         }

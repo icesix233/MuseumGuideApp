@@ -134,14 +134,22 @@ public class OKHttpUtil {
         }).start();
         /**因为函数返回是立刻执行的，而result要在请求完成之后才能获得
          * 所以需要等待result获得返回值之后再执行return*/
-        while(result.size()==0){
+        int count=0;
+        while(result.size()==0&&count<300){
             try {
                 TimeUnit.MILLISECONDS.sleep(10);//等待xx毫秒
+                count++;
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
-        return result.get(0);
+        if(count<300){
+            return result.get(0);
+        }else{
+            Log.d("HttpUtil", "等待返回值超时");
+            return null;
+        }
+
     }
 
 }

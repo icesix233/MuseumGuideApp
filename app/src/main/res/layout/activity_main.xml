@@ -18,7 +18,7 @@
     <RadioGroup
         android:id="@+id/rg_main"
         android:layout_width="match_parent"
-        android:layout_height="75dp"
+        android:layout_height="60dp"
         android:layout_alignParentBottom="true"
         android:background="#F6E9DC"
         android:orientation="horizontal">
@@ -27,9 +27,10 @@
         <RadioButton
             android:id="@+id/btn_home"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_margin="5dp"
-            android:layout_weight="1"
+            android:layout_weight="1.5"
+            android:layout_height="49sp"
+            android:layout_gravity="center"
+            android:layout_marginRight="50sp"
             android:background="@mipmap/guide2"
             android:button="@null"
             android:gravity="center">
@@ -39,9 +40,10 @@
         <RadioButton
             android:id="@+id/btn_path"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_margin="5dp"
             android:layout_weight="1"
+            android:layout_height="47dp"
+            android:layout_gravity="center"
+            android:layout_marginRight="50sp"
             android:background="@mipmap/path2"
             android:button="@null"
             android:gravity="center">
@@ -51,31 +53,31 @@
         <RadioButton
             android:id="@+id/btn_friend"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_margin="5dp"
             android:layout_weight="1"
+            android:layout_height="49dp"
+            android:layout_gravity="center"
+            android:layout_marginRight="50dp"
             android:background="@mipmap/friend2"
             android:button="@null"
-            android:gravity="center">
-        </RadioButton>
+            android:gravity="center"></RadioButton>
 
         <RadioButton
             android:id="@+id/btn_things"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_margin="5dp"
             android:layout_weight="1"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginRight="50dp"
             android:background="@mipmap/exhibition2"
             android:button="@null"
-            android:gravity="center">
-        </RadioButton>
+            android:gravity="center"></RadioButton>
 
         <RadioButton
             android:id="@+id/btn_setting"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_margin="5dp"
             android:layout_weight="1"
+            android:layout_height="45dp"
+            android:layout_gravity="center"
             android:background="@mipmap/setting2"
             android:button="@null"
             android:gravity="center">

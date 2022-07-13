@@ -16,10 +16,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.wifilocation997.Constant.Constant;
 import com.example.wifilocation997.R;
 import com.example.wifilocation997.activity.HtmlActivity;
 import com.example.wifilocation997.activity.MainActivity;
 import com.example.wifilocation997.entity.User;
+import com.example.wifilocation997.util.OKHttpUtil;
+import com.google.gson.Gson;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -114,6 +117,8 @@ public class SettingFragment extends Fragment implements View.OnClickListener {
         user = mainActivity.getUser();
         if(user ==null){
             tv_username.setText("游客"+ran);
+        }else{
+            tv_username.setText(user.getUser_name());
         }
     }
 
@@ -133,10 +138,14 @@ public class SettingFragment extends Fragment implements View.OnClickListener {
                             new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
-                                    Toast.makeText(getActivity(),
-                                            editText1.getText().toString(),
-                                            Toast.LENGTH_SHORT).show();
-                                    modifyUsername(editText1.getText().toString());
+                                    if(editText1.getText().toString().equals("")){
+                                        Toast.makeText(getActivity(),"用户名不能为空",
+                                                Toast.LENGTH_SHORT).show();
+                                    }else{
+                                        modifyPassword(editText1.getText().toString());
+                                        Toast.makeText(getActivity(),"修改成功",
+                                                Toast.LENGTH_SHORT).show();
+                                    }
                                 }
                             }).show();
                 }
@@ -155,10 +164,15 @@ public class SettingFragment extends Fragment implements View.OnClickListener {
                             new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
-                                    Toast.makeText(getActivity(),
-                                            editText2.getText().toString(),
-                                            Toast.LENGTH_SHORT).show();
-                                    modifyPassword(editText2.getText().toString());
+
+                                    if(editText2.getText().toString().equals("")){
+                                        Toast.makeText(getActivity(),"密码不能为空",
+                                                Toast.LENGTH_SHORT).show();
+                                    }else{
+                                        modifyPassword(editText2.getText().toString());
+                                        Toast.makeText(getActivity(),"修改成功",
+                                                Toast.LENGTH_SHORT).show();
+                                    }
                                 }
                             }).show();
                 }
@@ -187,10 +201,32 @@ public class SettingFragment extends Fragment implements View.OnClickListener {
 
 
     public void modifyUsername(String username){
+        user.setUser_name(username);
         //okhttp发送给服务器
+        Gson gson = new Gson();
+        String json = gson.toJson(user);
+        String args[] = new String[]{"user", "updatename"};
+        String res = null;//服务器传回的json字符串
+        res = OKHttpUtil.postSyncRequest(Constant.baseURL_ypy, json, args);
+        if(res==null){
+            Toast.makeText(getActivity(), "服务器响应超时", Toast.LENGTH_SHORT).show();
+        }else{
+            //若有需要，这里处理服务器返回值
+        }
     }
 
     public void modifyPassword(String password){
+        user.setUser_password(password);
         //okhttp发送给服务器
+        Gson gson = new Gson();
+        String json = gson.toJson(user);
+        String args[] = new String[]{"user", "updatepassword"};
+        String res = null;//服务器传回的json字符串
+        res = OKHttpUtil.postSyncRequest(Constant.baseURL_ypy, json, args);
+        if(res==null){
+            Toast.makeText(getActivity(), "服务器响应超时", Toast.LENGTH_SHORT).show();
+        }else{
+            //若有需要，这里处理服务器返回值
+        }
     }
 }

@@ -9,12 +9,14 @@ import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.PointF;
+import android.os.Looper;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.widget.Switch;
+import android.widget.Toast;
 
 import com.example.wifilocation997.R;
 import com.example.wifilocation997.entity.Coordinate;
@@ -323,6 +325,10 @@ public class MySurfaceView  extends SurfaceView
             if(coordinate == null){
                 //错误
                 Log.e("error","坐标对象为空");
+                //在子线程中实现Toast
+                Looper.prepare();
+                Toast.makeText(getContext(),"服务器响应超时",Toast.LENGTH_SHORT).show();
+                Looper.loop();
             }else{
                 X=(float)(coordinate.getPositionX()*RelativeDisPerX);
                 Y=(float)(coordinate.getPositionY()*RelativeDisPerY);

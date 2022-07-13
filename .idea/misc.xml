@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Workspace/Android/WiFiLocation997/app/src/main/res/drawable-v24/circle.xml" value="0.182" />
         <entry key="..\:/Workspace/Android/WiFiLocation997/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
         <entry key="..\:/Workspace/Android/WiFiLocation997/app/src/main/res/drawable-v24/round_button_lightgray.xml" value="0.159" />
         <entry key="..\:/Workspace/Android/WiFiLocation997/app/src/main/res/drawable-v24/round_radius.xml" value="0.3025" />
@@ -10,6 +11,8 @@
         <entry key="..\:/Workspace/Android/WiFiLocation997/app/src/main/res/drawable-v24/round_radius_top.xml" value="0.306" />
         <entry key="..\:/Workspace/Android/WiFiLocation997/app/src/main/res/drawable-v24/roundbutton_gray.xml" value="0.2985" />
         <entry key="..\:/Workspace/Android/WiFiLocation997/app/src/main/res/drawable/bottom_border.xml" value="0.2985" />
+        <entry key="..\:/Workspace/Android/WiFiLocation997/app/src/main/res/drawable/circle.xml" value="0.182" />
+        <entry key="..\:/Workspace/Android/WiFiLocation997/app/src/main/res/drawable/circle_bg.xml" value="0.182" />
         <entry key="..\:/Workspace/Android/WiFiLocation997/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
         <entry key="..\:/Workspace/Android/WiFiLocation997/app/src/main/res/drawable/main_button_bg_seleor.xml" value="0.2985" />
         <entry key="..\:/Workspace/Android/WiFiLocation997/app/src/main/res/drawable/round_button_blue.xml" value="0.363" />
@@ -19,9 +22,11 @@
         <entry key="..\:/Workspace/Android/WiFiLocation997/app/src/main/res/drawable/text_color.xml" value="0.1685" />
         <entry key="..\:/Workspace/Android/WiFiLocation997/app/src/main/res/layout-land/activity_main.xml" value="0.3064373897707231" />
         <entry key="..\:/Workspace/Android/WiFiLocation997/app/src/main/res/layout/activity_detail.xml" value="0.3578125" />
+        <entry key="..\:/Workspace/Android/WiFiLocation997/app/src/main/res/layout/activity_exhibitlist.xml" value="0.18489583333333334" />
         <entry key="..\:/Workspace/Android/WiFiLocation997/app/src/main/res/layout/activity_home.xml" value="0.358695652173913" />
         <entry key="..\:/Workspace/Android/WiFiLocation997/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/Workspace/Android/WiFiLocation997/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Workspace/Android/WiFiLocation997/app/src/main/res/layout/activity_music.xml" value="0.3619791666666667" />
         <entry key="..\:/Workspace/Android/WiFiLocation997/app/src/main/res/layout/activity_privacy.xml" value="0.3697916666666667" />
         <entry key="..\:/Workspace/Android/WiFiLocation997/app/src/main/res/layout/activity_register.xml" value="0.3619791666666667" />
         <entry key="..\:/Workspace/Android/WiFiLocation997/app/src/main/res/layout/fragment_blank.xml" value="0.33" />

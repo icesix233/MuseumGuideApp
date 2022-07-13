@@ -10,8 +10,9 @@
         android:layout_height="48dp"
         android:gravity="center"
         android:text="中国共产党历史展览馆"
-        android:textSize="40dp"
-        android:textColor="@drawable/text_color" />
+        android:textColor="@color/brown"
+        android:textSize="34sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/tv1"

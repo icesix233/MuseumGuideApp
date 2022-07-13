@@ -8,6 +8,7 @@
 
 <!--</androidx.constraintlayout.widget.ConstraintLayout>-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -20,8 +21,8 @@
         android:layout_height="49dp"
         android:gravity="center"
         android:text="展品信息"
-        android:textSize="40dp"
-        android:textColor="@drawable/text_color" />
+        android:textColor="@color/brown"
+        android:textSize="34sp" />
 
 
 
@@ -38,13 +39,17 @@
                 android:id="@+id/tv_username"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingLeft="5dp"
-                android:gravity="center"
-                android:textColor="@color/indianred"
-                android:textSize="40sp"
                 android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
                 android:layout_marginTop="20dp"
+                android:layout_marginRight="10dp"
+                android:fontFamily="sans-serif"
+                android:gravity="center"
+                android:paddingLeft="5dp"
+                android:textAlignment="center"
+                android:textColor="@color/brown"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:typeface="normal"
                 tools:text="《长城颂》" />
 
             <ImageView
@@ -54,55 +59,69 @@
                 android:scaleType="fitCenter"
                 tools:src="@drawable/changchengsong" />
 
-            <TextView
-                android:id="@+id/tv_goods_position"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="10dp"
-                android:textColor="@color/red"
-                android:textSize="27sp"
-                tools:text="1号展厅" />
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/tv_year"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:textColor="@color/blue"
-                android:textSize="27sp"
-                tools:text="巨幅漆画" />
+                <TextView
+                    android:id="@+id/tv_goods_position"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10sp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:textColor="@color/brown"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    tools:text="1号展厅" />
+
+                <TextView
+                    android:id="@+id/tv_year"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10sp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:textColor="@color/brown"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    tools:text="巨幅漆画" />
+
+                <Button
+                    android:id="@+id/btn_audio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10sp"
+                    android:background="@drawable/round_radius"
+                    android:text="语音讲解" />
+            </LinearLayout>
 
 
             <TextView
                 android:id="@+id/tv_goods_introduction"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:layout_marginTop="20dp"
+                android:background="@drawable/round_radius"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
                 android:textColor="@color/black"
-                android:textSize="23sp"
+                android:textSize="18sp"
                 tools:text="走进展览馆，首先映入眼帘的就是这幅《长城颂》巨幅漆画。穿梭于群山峰峦中的长城，盘旋而上、起伏蜿蜒直入云海深处，气势雄壮地展现中国共产党是时代先锋、民族脊梁。
 这幅漆画长40米、高15米，由100块漆板拼接而成，作者是清华大学美术学院教授程向军。在中国共产党成立100周年纪念币、《中国共产党成立100周年》纪念封上都有《长城颂》的身影。" />
 
             <TextView
-                android:id="@+id/me_name"
+                android:id="@+id/tv_title_board"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="5dp"
                 android:gravity="center"
-                android:textColor="@color/indianred"
-                android:textSize="40sp"
+                android:textColor="@color/brown"
+                android:textSize="24sp"
+                android:textStyle="bold"
                 tools:text="留言板" />
 
             <GridLayout
@@ -111,7 +130,17 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
-                android:columnCount="1" />
+                android:columnCount="1" >
+
+            </GridLayout>
+
+            <Button
+                android:id="@+id/btn_remark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/round_radius"
+                android:text="发表评论" />
 
         </LinearLayout>
     </ScrollView>

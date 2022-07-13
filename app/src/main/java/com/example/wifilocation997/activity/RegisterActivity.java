@@ -22,7 +22,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     private EditText et_reg_username;
     private EditText et_reg_password;
     private EditText et_reg_confirmpwd;
-    private String baseUrl=Constant.baseURL;
+    private String baseUrl=Constant.baseURL_ypy;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,18 +52,21 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             String json=gson.toJson(user);
             String args[]=new String[]{"user","register"};
             String res= OKHttpUtil.postSyncRequest(baseUrl,json,args);
-            Log.d("同步:",res);
-            if(res.equals("false")){
-                //已有该用户
-                Toast.makeText(this,"该用户已存在",Toast.LENGTH_SHORT).show();
-            } else {
-                //注册成功
-                Toast.makeText(this,"注册成功",Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(this,LoginActivity.class);
-                startActivity(intent);
-                finish();
+            if(res==null){
+                Toast.makeText(this,"服务器响应超时",Toast.LENGTH_SHORT).show();
+            }else{
+                Log.d("同步:",res);
+                if(res.equals("false")){
+                    //已有该用户
+                    Toast.makeText(this,"该用户已存在",Toast.LENGTH_SHORT).show();
+                } else {
+                    //注册成功
+                    Toast.makeText(this,"注册成功",Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(this,LoginActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
             }
         }
-
     }
 }

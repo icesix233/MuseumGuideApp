@@ -27,10 +27,11 @@
         android:id="@+id/tv_username"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textColor="@color/black"
-        android:textSize="25sp"
         android:layout_marginBottom="5dp"
+        android:gravity="center"
+        android:textColor="@color/brown"
+        android:textSize="25sp"
+        android:textStyle="bold"
         tools:text="《长城颂》" />
 
     <ImageView
@@ -51,28 +52,30 @@
             android:id="@+id/tv_position"
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginBottom="5dp"
             android:layout_weight="2"
             android:gravity="center"
-            android:textColor="@color/blue"
+            android:textColor="@color/brown"
             android:textSize="18sp"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
+            android:textStyle="bold"
             tools:text="M1" />
 
         <Button
             android:id="@+id/btn_add"
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginBottom="5dp"
             android:layout_weight="3"
+            android:background="@drawable/round_radius"
             android:gravity="center"
             android:text="了解详情"
             android:textColor="@color/black"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:textSize="18sp" />
+            android:textSize="16sp" />
     </LinearLayout>
 </LinearLayout>

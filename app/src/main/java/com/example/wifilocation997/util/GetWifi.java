@@ -15,7 +15,7 @@ import com.google.gson.Gson;
 
 import java.util.List;
 
-public class GetWifi{
+public class GetWifi {
     private final String TAG = "Y30J";
     private static final int PERMISSIONS_REQUEST_CODE_ACCESS_FINE_LOCATION = 1000;
     private final int UPDATE_UI_REQUEST_CODE = 1024;
@@ -28,17 +28,17 @@ public class GetWifi{
     //这里是访问地址
     private final String baseUrl = "https://h5556095v9.zicp.fun";
 
-private Context context;
-private Activity activity;
+    private Context context;
+    private Activity activity;
 
     private FingerPrint fingerPrint;
     private StringBuffer mScanResultStr;    // 暂存WiFi扫描结果的字符串
     private WifiManager mWifiManager;   // 调用WiFi各种API的对象
     private String result;
 
-    public GetWifi(Context context){
-        this.context=context;
-        activity = (Activity)context;
+    public GetWifi(Context context) {
+        this.context = context;
+        activity = (Activity) context;
         mWifiManager = (WifiManager) context.getApplicationContext().getSystemService(context.WIFI_SERVICE);
         getLocationAccessPermission();  // 先获取位置权限
         //scanWifi();
@@ -104,15 +104,15 @@ private Activity activity;
         Gson gson = new Gson();
         String json = gson.toJson(fingerPrint);
         String args[] = new String[]{"location", "location"};
-        try {
-            result = OKHttpUtil.postSyncRequest(baseUrl, json, args);
+
+        result = OKHttpUtil.postSyncRequest(baseUrl, json, args);
+        if(result==null){
+            //服务器响应超时
+        }else{
             Log.d("服务器返回值:", result);
-            resObj = gson.fromJson(result,Coordinate.class);
-            //Log.d("Finger", String.valueOf(res.getPositionX())+String.valueOf(res.getPositionY()));
-        } catch (Exception e) {
-            //连接失败
-            //Toast.makeText(this, "请检查网络连接", Toast.LENGTH_SHORT).show();
+            resObj = gson.fromJson(result, Coordinate.class);
         }
+        //Log.d("Finger", String.valueOf(res.getPositionX())+String.valueOf(res.getPositionY()));
         return resObj;
     }
 

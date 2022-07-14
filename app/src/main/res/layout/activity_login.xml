@@ -11,11 +11,15 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="HELLO"
+        android:layout_margin="20dp"
+        android:fontFamily="sans-serif"
+        android:text="欢迎使用\n博物馆导览系统"
+        android:textAlignment="viewStart"
+        android:textAllCaps="false"
         android:textColor="#E16D6D"
-        android:textSize="70sp"
-        android:textStyle="bold" />
+        android:textSize="48sp"
+        android:textStyle="bold"
+        android:typeface="normal" />
 
 
     <TextView
@@ -25,7 +29,7 @@
         android:gravity="center_vertical"
         android:paddingTop="12dp"
         android:text="        用户名"
-        android:textSize="24sp" />
+        android:textSize="20sp" />
 
     <EditText
         android:id="@+id/et_username"
@@ -42,7 +46,7 @@
         android:gravity="left"
         android:paddingTop="12dp"
         android:text="        密码"
-        android:textSize="24sp" />
+        android:textSize="20sp" />
 
     <EditText
         android:id="@+id/et_password"
@@ -60,7 +64,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="12sp"
-        android:background="#E16D6D"
+        android:background="@drawable/round_button_red"
         android:text="登录"
         android:textSize="@dimen/button_font_size" />
 

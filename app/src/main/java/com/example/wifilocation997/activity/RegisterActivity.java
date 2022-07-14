@@ -15,6 +15,8 @@ import com.example.wifilocation997.R;
 import com.example.wifilocation997.entity.User;
 import com.example.wifilocation997.util.OKHttpUtil;
 import com.google.gson.Gson;
+import com.hyphenate.chat.EMClient;
+import com.hyphenate.exceptions.HyphenateException;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -62,6 +64,12 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 } else {
                     //注册成功
                     Toast.makeText(this,"注册成功",Toast.LENGTH_SHORT).show();
+                    try {
+                        EMClient.getInstance().createAccount(username, password);
+                        Log.d("PAN", "环信注册成功");
+                    } catch (HyphenateException e) {
+                        Log.e("PAN", "环信注册失败" + e.getErrorCode() + "," + e.getMessage());
+                    }
                     Intent intent = new Intent(this,LoginActivity.class);
                     startActivity(intent);
                     finish();

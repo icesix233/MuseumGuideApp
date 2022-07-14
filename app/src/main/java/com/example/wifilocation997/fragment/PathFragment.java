@@ -7,15 +7,17 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.example.wifilocation997.R;
+import com.example.wifilocation997.activity.MainActivity;
 
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link PathFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class PathFragment extends Fragment {
+public class PathFragment extends Fragment implements View.OnClickListener {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -25,6 +27,10 @@ public class PathFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private Button btn_path1;
+    private Button btn_path2;
+    private Button btn_path3;
+    private MainActivity mainActivity;
 
     public PathFragment() {
         // Required empty public constructor
@@ -61,6 +67,30 @@ public class PathFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_path, container, false);
+        View view = inflater.inflate(R.layout.fragment_path, container, false);
+        btn_path1 = view.findViewById(R.id.btn_path1);
+        btn_path2 = view.findViewById(R.id.btn_path2);
+        btn_path3 = view.findViewById(R.id.btn_path3);
+        btn_path1.setOnClickListener(this);
+        btn_path2.setOnClickListener(this);
+        btn_path3.setOnClickListener(this);
+        mainActivity = (MainActivity) getActivity();
+        return view;
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.btn_path1:
+                mainActivity.switchMapPhoto(1);
+                break;
+            case R.id.btn_path2:
+                mainActivity.switchMapPhoto(2);
+                break;
+            case R.id.btn_path3:
+                mainActivity.switchMapPhoto(3);
+                break;
+            default:break;
+        }
     }
 }

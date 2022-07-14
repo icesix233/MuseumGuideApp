@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.example.wifilocation997.R;
 import com.example.wifilocation997.entity.User;
+import com.example.wifilocation997.fragment.ConversationListFragment;
 import com.example.wifilocation997.fragment.FriendFragment;
 import com.example.wifilocation997.fragment.HomeFragment;
 import com.example.wifilocation997.fragment.PathFragment;
@@ -32,7 +33,8 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
     private Button btn_things;
     private Button btn_setting;
     private User user=null;
-
+    private ConversationListFragment conversationListFragment;
+    private RadioGroup rg_main;
 
 
     @Override
@@ -40,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        RadioGroup rg_main = findViewById(R.id.rg_main);
+        rg_main = findViewById(R.id.rg_main);
 
         //每一页的对象
         homeFragment = HomeFragment.newInstance("","");
@@ -48,6 +50,7 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
         friendFragment = FriendFragment.newInstance("","");
         thingsFragment = ThingsFragment.newInstance("","");
         settingFragment = SettingFragment.newInstance("","");
+        conversationListFragment = new ConversationListFragment();
 
         //每个按钮对象
         btn_home = findViewById(R.id.btn_home);
@@ -58,6 +61,7 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
 
         //设置底部导航栏监听器
         rg_main.setOnCheckedChangeListener(this);
+        //rg_main.setOnClickListener(this);
         rg_main.check(R.id.btn_home);
 
         //取得user对象
@@ -68,7 +72,7 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
             Toast.makeText(this,"游客模式登录",Toast.LENGTH_SHORT).show();//测试
         }else{
             user = new Gson().fromJson(user_json, User.class);
-            Toast.makeText(this, user.getUser_name()+" "+ user.getUser_password(),Toast.LENGTH_SHORT).show();//测试
+            //Toast.makeText(this, user.getUser_name()+" "+ user.getUser_password(),Toast.LENGTH_SHORT).show();//测试
         }
     }
 
@@ -87,7 +91,11 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
                 btn_path.setBackgroundResource(R.mipmap.path1);
                 break;
             case R.id.btn_friend:
-                fragment = friendFragment;
+                if(user==null){
+                    fragment = friendFragment;//游客模式限制好友功能
+                }else{
+                    fragment = conversationListFragment;
+                }
                 init_button();
                 btn_friend.setBackgroundResource(R.mipmap.friend1);
                 break;
@@ -114,13 +122,21 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
     }
 
 
-    private void switchFragment(Fragment fragment) {//切换Fragment
+    public void switchFragment(Fragment fragment) {//切换Fragment
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.fl_main, fragment).commit();
     }
 
     public User getUser() {
         return user;
+    }
+
+    //用于处理推荐路线fragment跳转到首页，且根据传入的参数切换地图
+    public void switchMapPhoto(int i){
+        rg_main.check(R.id.btn_home);//要先把按钮状态切换过去，因为切换按钮会触发监听器
+        switchFragment(HomeFragment.newInstance(String.valueOf(i),""));
+        init_button();
+        btn_home.setBackgroundResource(R.mipmap.guide1);
     }
 
 }

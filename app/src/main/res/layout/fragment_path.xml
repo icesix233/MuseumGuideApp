@@ -14,82 +14,51 @@
         android:layout_height="48dp"
         android:gravity="center"
         android:text="中国共产党历史展览馆"
-        android:textSize="40dp"
-        android:textColor="@drawable/text_color" />
+        android:textColor="@color/brown"
+        android:textSize="34sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/textView1"
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
         android:text="推荐路线"
-        android:textSize="25dp"
-        android:textColor="@drawable/text_color" />
+        android:textColor="@drawable/text_color"
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:orientation="vertical"
+
+    <Button
+        android:id="@+id/btn_path1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:background="@drawable/round_radius">
+        android:background="@drawable/round_radius"
+        android:text="抗美援朝使用武器→脱贫攻坚数据→火神山医院模型→长城颂漆画→马克思手稿→一大会址复原场景→遵义会议复原景观→开国大典影像→七大投票箱"
+        android:textColor="@color/brown"
+        android:textSize="18sp" />
 
-        <TextView
-            android:id="@+id/tv_path1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:text="《长城颂》漆画→一大会址复原场景→开国大典影像→党的七大投票箱→创办经济特区图片→遵义会议复原景观"
-            android:textSize="20dp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:orientation="vertical"
+    <Button
+        android:id="@+id/btn_path2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:background="@drawable/round_radius">
+        android:background="@drawable/round_radius"
+        android:text="七大投票箱→开国大典影像→遵义会议复原景观→长城颂漆画→马克思手稿→一大会址复原场景→抗美援朝使用武器→脱贫攻坚数据→火神山医院模型"
+        android:textColor="@color/brown"
+        android:textSize="18sp" />
 
-        <TextView
-            android:id="@+id/tv_path2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:text="《长城颂》漆画→党的七大投票箱→一大会址复原场景→遵义会议复原景观→创办经济特区图片→开国大典影像"
-            android:textSize="20dp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:orientation="vertical"
+    <Button
+        android:id="@+id/btn_path3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:background="@drawable/round_radius">
-
-        <TextView
-            android:id="@+id/tv_path3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:text="《长城颂》漆画→创办经济特区图片→一大会址复原场景→开国大典影像→党的七大投票箱→遵义会议复原景观"
-            android:textSize="20dp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:orientation="vertical"
-        android:layout_margin="5dp"
-        android:background="@drawable/round_radius">
-
-        <TextView
-            android:id="@+id/tv_path4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:text="《长城颂》漆画→遵义会议复原景观→创办经济特区图片→一大会址复原场景→开国大典影像→党的七大投票箱"
-            android:textSize="20dp" />
-    </LinearLayout>
-
+        android:background="@drawable/round_radius"
+        android:text="长城颂漆画→马克思手稿→一大会址复原场景→抗美援朝使用武器→脱贫攻坚数据→火神山医院模型→遵义会议复原景观→开国大典影像→七大投票箱"
+        android:textColor="@color/brown"
+        android:textSize="18sp" />
 
 </LinearLayout>

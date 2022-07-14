@@ -1,5 +1,7 @@
 package com.example.wifilocation997.fragment;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -74,7 +76,24 @@ public class HomeFragment extends Fragment {
          tv_title = view.findViewById(R.id.tv_title);
          sv_map = view.findViewById(R.id.sv_map);
 
-
+         switch (getArguments().getString(ARG_PARAM1)){
+             case "1":
+                 Bitmap map1 = BitmapFactory.decodeResource(this.getContext().getResources(), R.mipmap.map1); //地图图片
+                 sv_map.setBitmap(map1);
+                 break;
+             case "2":
+                 Bitmap map2 = BitmapFactory.decodeResource(this.getContext().getResources(), R.mipmap.map2); //地图图片
+                 sv_map.setBitmap(map2);
+                 break;
+             case "3":
+                 Bitmap map3 = BitmapFactory.decodeResource(this.getContext().getResources(), R.mipmap.map3); //地图图片
+                 sv_map.setBitmap(map3);
+                 break;
+             default:   //空串，即从MainActivity正常跳转，这时的地图为默认地图
+                 Bitmap map = BitmapFactory.decodeResource(this.getContext().getResources(), R.mipmap.map); //地图图片
+                 sv_map.setBitmap(map);
+                 break;
+         }
 
         return view;
     }

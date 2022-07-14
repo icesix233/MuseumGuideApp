@@ -75,7 +75,7 @@
         android:textSize="@dimen/button_font_size" />
 
     <Button
-        android:id="@+id/btn_forget"
+        android:id="@+id/btn_nouser"
         android:layout_width="@dimen/button_weigth"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"

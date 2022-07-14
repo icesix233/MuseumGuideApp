@@ -15,6 +15,10 @@ import com.example.wifilocation997.database.ExhibitDBHelper;
 import com.example.wifilocation997.entity.Exhibit;
 import com.example.wifilocation997.util.FileUtil;
 import com.example.wifilocation997.util.SharedUtil;
+import com.hyphenate.EMCallBack;
+import com.hyphenate.chat.EMClient;
+import com.hyphenate.chat.EMOptions;
+import com.hyphenate.easeui.EaseIM;
 
 import java.io.File;
 import java.util.HashMap;
@@ -51,6 +55,22 @@ public class MyApplication extends Application {
 
         // 初始化商品信息
         initGoodsInfo();
+
+        //初始化环信
+        EMOptions options = new EMOptions();
+        // 默认添加好友时，是不需要验证的，改成需要验证
+        options.setAcceptInvitationAlways(false);
+        // 是否自动将消息附件上传到环信服务器，默认为True是使用环信服务器上传下载，如果设为 false，需要开发者自己处理附件消息的上传和下载
+        options.setAutoTransferMessageAttachments(true);
+        // 是否自动下载附件类消息的缩略图等，默认为 true 这里和上边这个参数相关联
+        options.setAutoDownloadThumbnail(true);
+
+        //EaseIM初始化
+        if(EaseIM.getInstance().init(getApplicationContext(), options)) {
+            //在做打包混淆时，关闭debug模式，避免消耗不必要的资源
+            EMClient.getInstance().setDebugMode(true);
+            //EaseIM初始化成功之后再去调用注册消息监听的代码 ...
+        }
     }
 
     private void initGoodsInfo() {
@@ -81,12 +101,34 @@ public class MyApplication extends Application {
     }
 
 
+    @Override
+    public void onTrimMemory(int level) {
+        super.onTrimMemory(level);
+        EMClient.getInstance().logout(true, new EMCallBack() {
+            @Override
+            public void onSuccess() {
+                Log.d("PAN", "退出登录成功");
+            }
+
+            @Override
+            public void onProgress(int progress, String status) {
+
+            }
+
+            @Override
+            public void onError(int code, String message) {
+                Log.e("PAN", "退出登录失败" + code + "," + message);
+            }
+        });
+    }
+
     //在App终止时调用
     @Override
     public void onTerminate() {
         super.onTerminate();
         Log.d("ning", "onTerminate");
     }
+
 
     //在配置改变时调用，例如从竖屏变为横屏。
     @Override

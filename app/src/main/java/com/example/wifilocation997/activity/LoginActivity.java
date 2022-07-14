@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Looper;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -15,6 +16,8 @@ import com.example.wifilocation997.R;
 import com.example.wifilocation997.entity.User;
 import com.example.wifilocation997.util.OKHttpUtil;
 import com.google.gson.Gson;
+import com.hyphenate.EMCallBack;
+import com.hyphenate.chat.EMClient;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -56,7 +59,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.activity_login);
         btn_login = findViewById(R.id.btn_login);
         btn_reg = findViewById(R.id.btn_reg);
-        Button btn_forget = findViewById(R.id.btn_forget);
+        Button btn_forget = findViewById(R.id.btn_nouser);
         et_username = findViewById(R.id.et_username);
         et_password = findViewById(R.id.et_password);
 
@@ -90,9 +93,30 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     } else if (user_success.getUser_number() == 1) {
                         //用户名不存在
                         Toast.makeText(this, "用户名不存在", Toast.LENGTH_SHORT).show();
-                    } else {
-                        //登录成功
-                        Toast.makeText(this, "登录成功", Toast.LENGTH_SHORT).show();
+                    } else {//登录成功，等待环信登录
+                        //环信登录
+                        EMClient.getInstance().login(username, password, new EMCallBack() {
+                            @Override
+                            public void onSuccess() {
+                                //登录成功
+                                Log.d("PAN", "环信登录成功 ");
+                                Looper.prepare();
+                                Toast.makeText(LoginActivity.this, "登录成功", Toast.LENGTH_SHORT).show();
+                                Looper.loop();
+                            }
+                            @Override
+                            public void onError(int i, String s) {
+                                //登录失败
+                                Log.e("PAN", "环信登录失败" + i + "," + s);
+                                Looper.prepare();
+                                Toast.makeText(LoginActivity.this, "聊天服务器异常，请退出后重试", Toast.LENGTH_SHORT).show();
+                                Looper.loop();
+                            }
+                            @Override
+                            public void onProgress(int i, String s) {
+                            }
+                        });
+                        //Toast.makeText(this, "登录成功", Toast.LENGTH_SHORT).show();
                         Intent intent1 = new Intent(this, MainActivity.class);
                         intent1.putExtra("user_json", res);
                         startActivity(intent1);
@@ -106,9 +130,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 startActivity(intent2);
                 finish();
                 break;
-            //找回密码
-            case R.id.btn_forget:
-                //测试时，以游客模式登录
+            //游客模式
+            case R.id.btn_nouser:
                 Intent intent1 = new Intent(this, MainActivity.class);
                 intent1.putExtra("user_json", "null");
                 startActivity(intent1);

@@ -2,14 +2,26 @@
 <resources>
     <string-array name="start">
         <item>当前位置</item>
-        <item>《长城颂》漆画</item>
-        <item>一大会址复原场景</item>
+        <item>长城颂漆画</item>
+        <item>马克思手稿</item>
+        <item>一大会址复原</item>
+        <item>遵义会议复原</item>
+        <item>七大投票箱</item>
         <item>开国大典影像</item>
+        <item>抗美援朝使用武器</item>
+        <item>脱贫攻坚数据</item>
+        <item>火神山医院模型</item>
     </string-array>
 
     <string-array name="end">
-        <item>《长城颂》漆画</item>
-        <item>一大会址复原场景</item>
+        <item>长城颂漆画</item>
+        <item>马克思手稿</item>
+        <item>一大会址复原</item>
+        <item>遵义会议复原</item>
+        <item>七大投票箱</item>
         <item>开国大典影像</item>
+        <item>抗美援朝使用武器</item>
+        <item>脱贫攻坚数据</item>
+        <item>火神山医院模型</item>
     </string-array>
 </resources>

@@ -40,6 +40,8 @@ import com.example.wifilocation997.entity.Message;
 import com.example.wifilocation997.util.OKHttpUtil;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.hyphenate.chat.EMClient;
+import com.hyphenate.chat.EMConversation;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -203,8 +205,21 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
 
                 iv_biankuang2.setImageResource(R.drawable.biankuang);
                 mm_message.setText(message_info.content);
-                mm_user.setText(message_info.user_name);
+                mm_user.setText(message_info.user_name+"：");
                 mm_date.setText(message_info.date);
+                // 点击用户名，跳转到聊天页面
+                mm_user.setOnClickListener(v -> {
+                    if(user_name == null){
+                        Toast.makeText(this, "您当前处于游客模式，无法发起聊天",
+                                Toast.LENGTH_SHORT).show();
+                    }else{
+                        EMConversation conversation = EMClient.getInstance().chatManager().getConversation(message_info.user_name, EMConversation.EMConversationType.Chat, true);
+                        Log.d("PAN", "CONVERSATION: " + conversation.conversationId());
+                        EMClient.getInstance().chatManager().getAllConversations();
+                        EMClient.getInstance().groupManager().getAllGroups();
+                        ChatActivity.actionStart(getApplicationContext(), conversation.conversationId(), 1);
+                    }
+                });
 
 
                 // 把商品视图添加到网格布局

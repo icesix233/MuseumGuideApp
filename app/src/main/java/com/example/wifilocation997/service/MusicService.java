@@ -73,6 +73,30 @@ public class MusicService extends Service {
                     case 2:
                         player=MediaPlayer.create(getApplicationContext(),R.raw.music2);
                         break;
+                    case 3:
+                        player=MediaPlayer.create(getApplicationContext(),R.raw.music3);
+                        break;
+                    case 4:
+                        player=MediaPlayer.create(getApplicationContext(),R.raw.music4);
+                        break;
+                    case 5:
+                        player=MediaPlayer.create(getApplicationContext(),R.raw.music5);
+                        break;
+                    case 6:
+                        player=MediaPlayer.create(getApplicationContext(),R.raw.music6);
+                        break;
+                    case 7:
+                        player=MediaPlayer.create(getApplicationContext(),R.raw.music7);
+                        break;
+                    case 8:
+                        player=MediaPlayer.create(getApplicationContext(),R.raw.music8);
+                        break;
+                    case 9:
+                        player=MediaPlayer.create(getApplicationContext(),R.raw.music9);
+                        break;
+                    default:
+                        player=MediaPlayer.create(getApplicationContext(),R.raw.music1);
+                        break;
                 }
 
                 player.start();//播放音乐

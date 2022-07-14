@@ -9,6 +9,7 @@ import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.util.Log;
 
+import com.example.wifilocation997.Constant.Constant;
 import com.example.wifilocation997.entity.Coordinate;
 import com.example.wifilocation997.entity.FingerPrint;
 import com.google.gson.Gson;
@@ -26,7 +27,7 @@ public class GetWifi {
     private final String BASE4 = "aa:ac:ef:13:e5:dc";//G8 ThinQ
 
     //这里是访问地址
-    private final String baseUrl = "https://h5556095v9.zicp.fun";
+    private final String baseUrl = Constant.baseURL_lzl;
 
     private Context context;
     private Activity activity;

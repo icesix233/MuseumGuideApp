@@ -179,7 +179,7 @@ public class ThingsFragment extends Fragment {
         } else {
             x = coordinate.getPositionX();
             y = coordinate.getPositionY();
-            Toast.makeText(getContext(), "X:" + String.valueOf(x) + "Y:" + String.valueOf(y), Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "已优先展示最近的展厅", Toast.LENGTH_SHORT).show();
         }
     }
 
